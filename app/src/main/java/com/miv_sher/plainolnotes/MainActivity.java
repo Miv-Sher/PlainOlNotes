@@ -2,12 +2,18 @@ package com.miv_sher.plainolnotes;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.miv_sher.plainolnotes.model.NoteEntity;
+import com.miv_sher.plainolnotes.utilities.SampleData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
+    private List<NoteEntity> notesList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         initRecyclerView();
+        notesList.addAll(SampleData.getNotes());
+        for (NoteEntity note:notesList
+             ) {
+            Log.i("PlainOlNotes", note.toString());
+        }
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
