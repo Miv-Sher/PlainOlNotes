@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.miv_sher.plainolnotes.R;
-import com.miv_sher.plainolnotes.model.NoteEntity;
+import com.miv_sher.plainolnotes.database.NoteEntity;
 
 import java.util.List;
 

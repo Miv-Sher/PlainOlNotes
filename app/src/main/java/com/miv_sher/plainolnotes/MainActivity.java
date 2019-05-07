@@ -1,15 +1,13 @@
 package com.miv_sher.plainolnotes;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.miv_sher.plainolnotes.model.NoteEntity;
+import com.miv_sher.plainolnotes.database.NoteEntity;
 import com.miv_sher.plainolnotes.ui.NotesAdapter;
 import com.miv_sher.plainolnotes.utilities.SampleData;
 
@@ -22,11 +20,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+
+    @OnClick(R.id.fab)
+    void fabClickHandler(){
+        Intent intent = new Intent(this, EditorActivity.class);
+        startActivity(intent);
+    }
 
     private List<NoteEntity> notesList = new ArrayList<>();
     private NotesAdapter mAdapter;
@@ -48,14 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 
     private void initRecyclerView(){

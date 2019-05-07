@@ -1,6 +1,6 @@
 package com.miv_sher.plainolnotes.utilities;
 
-import com.miv_sher.plainolnotes.model.NoteEntity;
+import com.miv_sher.plainolnotes.database.NoteEntity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
