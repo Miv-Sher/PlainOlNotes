@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.miv_sher.plainolnotes.model.NoteEntity;
+import com.miv_sher.plainolnotes.ui.NotesAdapter;
 import com.miv_sher.plainolnotes.utilities.SampleData;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
 
     private List<NoteEntity> notesList = new ArrayList<>();
+    private NotesAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ButterKnife.bind(this);
-        initRecyclerView();
         notesList.addAll(SampleData.getNotes());
         for (NoteEntity note:notesList
-             ) {
+        ) {
             Log.i("PlainOlNotes", note.toString());
         }
+        ButterKnife.bind(this);
+        initRecyclerView();
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -60,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+
+        mAdapter = new NotesAdapter(notesList, this);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
