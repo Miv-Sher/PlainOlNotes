@@ -3,6 +3,8 @@ https://www.linkedin.com/learning/building-an-android-app-with-architecture-comp
 
 Учебный проект по курсу Building an Android App with Architecture Components
 
+#mvp #butterKnife #dataBinding #room #androidx.appcompat #androidx.lifecycle
+
 Google now offers a set of recommended components for architecting Android apps.
 Android developers can learn how to follow these recommendations to improve their initial development process and simplify
 long-term maintenance. In this course, learn best practices for building high-quality Android apps using the Android Architecture
