@@ -14,7 +14,7 @@ Room library, display a list of data with the efficient RecyclerView component, 
 objects.
 
 
-# Learning Objectives:
+### Learning Objectives:
 
   Exploring the Architecture Components  
   Creating the user interface  
